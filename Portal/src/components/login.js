@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import {auth} from '../config/firebaseConfiguration'
 import history from '../config/history'
+import PasswordResetConfirmation from "./PasswordResetConfirmation";
 
 class LoginComponent extends Component {
   state = {
@@ -49,6 +50,17 @@ class LoginComponent extends Component {
     })
   }
 
+  handlerReset = () => {
+    // auth.sendPasswordResetEmail(emailAddress).then(function() {
+    //   // Email sent.
+    // }).catch(function(error) {
+    //   // An error happened.
+    // });
+    console.log('====================================');
+    console.log("clicked");
+    console.log('====================================');
+  }
+
   render(){
     return(
 <div>
@@ -69,6 +81,10 @@ class LoginComponent extends Component {
       onChange = {this.passwordHandler.bind(this)}
       onClick = {this.passwordClickHandler}
     />
+    <br/>       
+    <br/>  
+    <PasswordResetConfirmation email = {this.state.email}/> 
+    <br/>       
     <RaisedButton label="Login" primary={true} onClick = {this.loginHandler.bind(this)} />
     <div>      
        </div>
